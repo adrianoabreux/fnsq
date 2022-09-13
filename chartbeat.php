@@ -103,3 +103,5 @@ add_action( 'instant_articles_after_transform_post', function ($ia_post) {
 	$instant_article->addChild(Analytics::create()->withHTML($cbia_script));
 
 });
+
+?>
