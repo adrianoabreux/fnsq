@@ -1,3 +1,5 @@
+<php 
+     
 function chartbeat_configs() {
 	$domain = 'bandab.com.br';
 	$user_id = 66994;
