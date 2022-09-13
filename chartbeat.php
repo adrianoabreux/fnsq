@@ -1,4 +1,4 @@
-<php 
+<?php 
      
 function chartbeat_configs() {
 	$domain = 'bandab.com.br';
