@@ -89,14 +89,14 @@ use Facebook\InstantArticles\Elements\Analytics;
 add_action( 'instant_articles_after_transform_post', function ($ia_post) {
     $instant_article = $ia_post->instant_article;
 	$cb_configs = chartbeat_configs(); 
-	$cbia_start = '<script type="text/javascript"
-							(function() {
-								var _sf_async_config = window._sf_async_config = (window._sf_async_config || {});
-								_sf_async_config.path = window.ia_document.shareURL;
-								_sf_async_config.title = window.ia_document.title; ';
+	$cbia_start = '<script type="text/javascript">
+				(function() {
+					var _sf_async_config = window._sf_async_config = (window._sf_async_config || {});
+					_sf_async_config.path = window.ia_document.shareURL;
+					_sf_async_config.title = window.ia_document.title; ';
 	$cbia_config = '_sf_async_config.uid = "' . $cb_configs["uid"] . '"; _sf_async_config.domain = "' . $cb_configs["domain"] . '"; ';    
     if (is_single()) {
-		$the_config .= '_sf_async_config.authors = "' . $cb_configs["author"] . '";_sf_async_config.sections = "' . $cb_configs["sections"] . '";'; 
+		$the_config .= '_sf_async_config.authors = "' . $cb_configs["author"] . '"; _sf_async_config.sections = "' . $cb_configs["sections"] . '";'; 
   	}
     $cbia_end = '})();</script><script src="//static.chartbeat.com/js/chartbeat_fia.js"></script>';
 	$cbia_script = $cbia_start . $cbia_config . $cbia_end;
