@@ -35,7 +35,7 @@ function add_chartbeat_head() {
 	$cb_configs = chartbeat_configs();
     $cb_headline_testing = true;
 	?>
-		<script type="text/javascript">
+		<script data-cfasync="false" type="text/javascript">
 			var _sf_async_config = window._sf_async_config = (window._sf_async_config || {});
 			_sf_async_config.uid = <?php echo esc_js($cb_configs["uid"]); ?>;
 			_sf_async_config.domain = "<?php echo esc_js($cb_configs["domain"]); ?>";
@@ -46,9 +46,9 @@ function add_chartbeat_head() {
             _sf_async_config.sections = "<?php echo esc_js($cb_configs["sections"]); ?>";
     <?php } ?>
         (function() {
-            function loadChartbeat() {var e = document.createElement('script');var n = document.getElementsByTagName('script')[0];e.type = 'text/javascript';e.async = true;e.src = '//static.chartbeat.com/js/chartbeat.js';n.parentNode.insertBefore(e, n);} loadChartbeat();
+            function loadChartbeat() {var e = document.createElement('script');var n = document.getElementsByTagName('script')[0];e.type = 'text/javascript';e.setAttribute("data-cfasync", "false");e.async = true;e.src = '//static.chartbeat.com/js/chartbeat.js';n.parentNode.insertBefore(e, n);} loadChartbeat();
         <?php if ($cb_headline_testing == 1) {?>
-            function loadChartbeatMAB() {var e = document.createElement('script');var n = document.getElementsByTagName('script')[0];e.type = 'text/javascript';e.async = true;e.src = '//static.chartbeat.com/js/chartbeat_mab.js';n.parentNode.insertBefore(e, n);} loadChartbeatMAB();
+            function loadChartbeatMAB() {var e = document.createElement('script');var n = document.getElementsByTagName('script')[0];e.type = 'text/javascript';e.setAttribute("data-cfasync", "false");e.async = true;e.src = '//static.chartbeat.com/js/chartbeat_mab.js';n.parentNode.insertBefore(e, n);} loadChartbeatMAB();
         <?php } ?>
         })();
         </script>         
